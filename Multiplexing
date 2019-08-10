@@ -1,0 +1,26 @@
+#include<avr/io.h>
+#include<util/delay.h>
+int main()
+{
+DDRD = 0XFF;
+DDRC = 0XFF;
+int a[10] = {0X3F,0X06,0X5B,0X4F,0X66,0X7D,0X07,0X7F,0X6F};
+while(1)
+{
+for(int i = 0; i < 10; i++)
+{
+for(int j = 0; j<10; j++)
+{
+for(int s = 0; s < 20; s++)
+{
+PORTD = 0X02;
+PORTC = a[j];
+_delay_ms(5);
+PORTD = 0X01;
+PORTC = a[i];
+_delay_ms(5);
+}
+}
+}
+}
+}
